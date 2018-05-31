@@ -1,3 +1,5 @@
 <!--pages/start/start.wxml-->
-<text>pages/start/start.wxml</text>
-<button bindtap='toPage' style='background:#f00'>助力球星</button>
+<view class='container'>
+<button bindtap='toPage' style='background:#f00;margin-top:600rpx;color:#fff;'>助力球星</button>
+</view>
+

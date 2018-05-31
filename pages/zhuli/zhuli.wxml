@@ -1,3 +1,0 @@
-<!--pages/zhuli/zhuli.wxml-->
-<text>球星助力情况</text>
-<button bindtap='toPage'>查看我的资产</button>

@@ -47,10 +47,7 @@ Page({
         }
       })
     } else {
-      console.log('未授权');
-      wx.navigateTo({
-        url: '../authorize/authorize',
-      })
+      console.log('未授权33');    
     }
   },
   myLogin: function () {

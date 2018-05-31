@@ -1,12 +1,12 @@
 {
   "pages": [
-    "pages/zhuli/zhuli",
-    "pages/sharePage/sharePage",
+    "pages/worldCup/worldCup",
     "pages/start/start",
     "pages/login/login",
     "pages/unRepay/unRepay",
     "pages/award/award",
-    "pages/authorize/authorize"     
+    "pages/authorize/authorize",
+    "pages/sharePage/sharePage"   
   ],
   "tabBar": {
     "color": "#888",

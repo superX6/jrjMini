@@ -1,0 +1,19 @@
+
+
+.container {
+  width: 92%;
+  position: relative;
+  background: #6eb0ea;    
+  box-sizing: border-box;
+  background: #fff;
+  margin: 0 4%; 
+} 
+
+.panel{
+  width: 100%;
+  box-sizing: border-box;
+  background: #eee;
+  padding: 40rpx 80rpx;  
+  border-radius: 40rpx;
+  margin: 10rpx auto;
+}

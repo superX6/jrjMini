@@ -2,12 +2,12 @@
 App({
   onLaunch: function () {
    //wx.clearStorageSync();
-
    // 获取用户信息
     wx.getSetting({
-      success: res => {        
+      success: res => { 
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          console.log(337777)
           wx.getUserInfo({
             success: res => {             
               // 可以将 res 发送给后台解码出 unionId
@@ -22,17 +22,11 @@ App({
             }
           })
         }else{ //微信授权提示
-          wx.authorize({
-            scope: 'scope.userInfo',
-            success() {
-
-            },
-            fail() {
-            
-            }
+          console.log('授权登录')
+          return; //调试断点
+          wx.navigateTo({
+            url: '../authorize/authorize',
           })
-
-
         }
       }
     })

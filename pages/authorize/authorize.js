@@ -66,18 +66,28 @@ Page({
   },
   bindGetUserInfo: function (e) {
     console.log(e)
+    if (e.detail.errMsg !== 'getUserInfo:ok') {
+      wx.showToast({
+        title: '无法登录',
+        icon: 'fail',
+        duration: 2000
+      })
+    }
     if (!e.detail.userInfo) {
       return;
-    }
-    wx.setStorageSync('userInfo', e.detail.userInfo)
+    }   
+  
+    wx.setStorageSync('userInfo', e.detail.userInfo);
+
+    //已经授权 微信登录
     this.login();
   },
   login: function () {
     let that = this;
     let token = wx.getStorageSync('token');
-    if (token) {
+    if (token) {  //存在token 直接登录
       wx.request({
-        url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/check-token',
+        url: '', //后台接口登录地址
         data: {
           token: token
         },
@@ -87,7 +97,8 @@ Page({
             that.login();
           } else {
             // 回到原来的地方放
-            wx.navigateBack();
+            // wx.navigateBack();
+          
           }
         }
       })
@@ -107,14 +118,21 @@ Page({
               return;
             }
             if (res.data.code != 0) {
-              // 登录错误
-              wx.hideLoading();
-              wx.showModal({
-                title: '提示',
-                content: '无法登录，请重试',
-                showCancel: false
+              // 模拟微信授权登录成功 调转到活动页面
+              wx.navigateTo({
+                url: '../worldCup/worldCup',
               })
-              return;
+              
+
+
+              // 登录错误
+              // wx.hideLoading();
+              // wx.showModal({
+              //   title: '提示',
+              //   content: '无法登录，请重试',
+              //   showCancel: false
+              // })
+              // return;
             }
             wx.setStorageSync('token', res.data.data.token)
             wx.setStorageSync('uid', res.data.data.uid)
