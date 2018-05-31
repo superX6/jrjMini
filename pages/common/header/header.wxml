@@ -1,0 +1,28 @@
+<!--pages/common/header/header.wxml-->
+<view>
+   <view class='header'>
+    <text class='info-item'>{{bucket}}</text>
+    <view class='info-item'>余额：
+      <text>{{availablebalance}}</text>元</view>
+    <text class='info-item'>{{account}}</text>
+    <text class='info-item'>冻结：<text>{{freezecapital}}</text>元</text>
+  </view>
+  <view class='sum'>
+    <view class='sum-item'>
+      <view>奖励金额累计</view>
+      <view>
+        <text> {{awardmoney}}</text>
+        <text> 元</text>
+      </view>
+
+    </view>
+    <view class='sum-item'>
+      <view>待回款累计</view>
+      <view>
+        <text> {{dueincapital}}</text>
+        <text>元</text>
+      </view>
+
+    </view>
+  </view>
+</view>

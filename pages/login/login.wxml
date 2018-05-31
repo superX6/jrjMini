@@ -1,0 +1,24 @@
+<view class="login">
+  <view class='section'>
+    <image class='logo' src='https://www.jrjzx.cn/p2pmini/statics/build/img/logo.png' mode='scaleToFill'></image>
+  </view>
+  <view class="section account">
+    <view class="iconfont icon-shouji"></view>
+    <input name="account" placeholder="请输入注册手机号" bindinput="usernameInput" />
+  </view>
+  <view class="section">
+    <view class="iconfont icon-mima"></view>
+    <input password type="text" name="password" placeholder="请输入密码" bindinput="passwordInput" />
+  </view>
+
+  <view class='tips'>
+    <text> {{infoMess}}</text>
+  </view>
+  <view>
+    <button class='weui-btn' type='primary' formType="submit" bindtap="loginBtnClick">{{loginText}}</button>
+  </view>
+  <view class='help'>
+    <text>遇到困难？</text>
+    <text class="iconfont icon-icon32206" bindtap='call'>联系客服</text>    
+  </view>
+</view>

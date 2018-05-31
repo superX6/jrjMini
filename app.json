@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/zhuli/zhuli",
+    "pages/sharePage/sharePage",
+    "pages/start/start",
+    "pages/login/login",
+    "pages/unRepay/unRepay",
+    "pages/award/award",
+    "pages/authorize/authorize"     
+  ],
+  "tabBar": {
+    "color": "#888",
+    "selectedColor": "#353535",
+    "list": [
+      {
+        "pagePath": "pages/award/award",
+        "iconPath": "./images/icon_award.png",
+        "selectedIconPath": "./images/icon_award_active.png",
+        "text": "我的奖励"
+      },
+      {
+        "pagePath": "pages/unRepay/unRepay",
+        "iconPath": "./images/icon_unRepay.png",
+        "selectedIconPath": "./images/icon_unRepay_active.png",
+        "text": "我的待收"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "金融街随手记",
+    "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}

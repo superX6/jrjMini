@@ -1,0 +1,46 @@
+.detail {
+  margin-top: 26rpx;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.detail .detail-title {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: row;
+}
+
+.detail .detail-title view {
+  display: block;
+  flex: 1;
+  height: 118rpx;
+  box-sizing: border-box;
+  line-height: 118rpx;
+  text-align: center;
+  border: 1px solid #ddd;
+  color: #888;
+  font-size: 32rpx;
+}
+
+.detail .detail-title view.active {
+  color: #ffa902;
+  border: 1rpx solid #ffa902;
+}
+
+.detail .detail-title view:nth-child(1).active {
+ border-left: none
+}
+.detail .detail-title view:nth-child(2).active {
+ border-right: none
+}
+
+.detail .detail-content .hidden {
+  display: none;
+}
+
+.detail .detail-content .show {
+  display: block;
+}
+

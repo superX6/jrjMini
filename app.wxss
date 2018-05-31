@@ -1,0 +1,120 @@
+
+@import 'weui.wxss';
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; 
+  box-sizing: border-box;
+   background: #f7f7f7;
+} 
+
+/*iconfont*/
+@font-face {
+  font-family: 'iconfont';  /* project id 501772 */
+  src: url('//at.alicdn.com/t/font_501772_cbystvxvu0nyu8fr.eot');
+  src: url('//at.alicdn.com/t/font_501772_cbystvxvu0nyu8fr.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_501772_cbystvxvu0nyu8fr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_501772_cbystvxvu0nyu8fr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_501772_cbystvxvu0nyu8fr.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:40rpx;
+  color: #000;   
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-saving-pot:before {content: "\e78d";}
+.icon-qian:before {content: "\e663";}
+.icon-yanjing:before {content: "\e606";}
+.icon-jiangli:before {content: "\e647";}
+.icon-mima:before {content: "\e618";}
+.icon-biaoti:before {content: "\e614";}
+.icon-huikuang:before {content: "\e628";}
+.icon-yonghu:before {content: "\e601";}
+.icon-yanzhengma:before {content: "\e603";}
+.icon-icon32206:before {content: "\e60b";}
+.icon-shijian:before {content: "\e6a9";}
+.icon-shouji:before {content: "\e6de";}
+
+.header{
+  width: 100%;
+  height: 312rpx;
+  padding: 60rpx 1% 60rpx 21%;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  text-align: center;
+  color: #fff; 
+  overflow: hidden;
+  background-image: url('https://www.jrjzx.cn/p2pmini/statics/build/img/banner_bg.png');
+  background-size: contain;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+.header .info-item{
+  width: 40%;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box; 
+}
+.header .info-item text{
+  font-size: 36rpx;
+}
+.header .info-item:nth-child(1),.header .info-item:nth-child(3){
+   width: 36%;
+}
+.header .info-item:nth-child(2),.header .info-item:nth-child(4){
+   width: 64%;
+   padding-left: 15rpx;
+   text-align: left;
+}
+.sum{
+  width: 100%;
+  height: 142rpx;
+  box-sizing: border-box;
+  padding: 25rpx 0;
+  background: #fff;
+  display: flex;
+  font-size: 36rpx; 
+  justify-content: row;
+  text-align: center;
+  color: #333333;
+}
+.sum .sum-item{
+  width: 50%;
+  justify-content: column;
+}
+.sum .sum-item view{
+  display: block; 
+  width: 100%; 
+  font-size: 32rpx;
+    color: #333333;  
+}
+.sum .sum-item view:nth-child(2){
+font-size: 36rpx;
+}
+.detail .detail-content .list{
+  display: flex;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #ddd;
+  color: #888;
+  font-size: 28rpx;
+}
+.detail .detail-content .list text{
+  width: 50%;
+  height: 84rpx;
+   color: #353535;
+  line-height: 84rpx;
+  text-align: center;  
+}
+.no-data{
+  padding: 20rpx 0;
+  color: #333;
+  font-size: 32rpx;
+  text-align: center;
+}

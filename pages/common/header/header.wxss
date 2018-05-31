@@ -1,0 +1,58 @@
+
+.header{
+  width: 100%;
+  height: 312rpx;
+  padding: 60rpx 1% 60rpx 21%;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  text-align: center;
+  color: #fff; 
+  overflow: hidden;
+  background-image: url('https://www.jrjzx.cn/p2pmini/statics/build/img/banner_bg.png');
+  background-size: contain;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+.header .info-item{
+  width: 40%;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box; 
+}
+.header .info-item text{
+  font-size: 36rpx;
+}
+.header .info-item:nth-child(1),.header .info-item:nth-child(3){
+   width: 36%;
+}
+.header .info-item:nth-child(2),.header .info-item:nth-child(4){
+   width: 64%;
+   padding-left: 15rpx;
+   text-align: left;
+}
+.sum{
+  width: 100%;
+  height: 142rpx;
+  box-sizing: border-box;
+  padding: 25rpx 0;
+  background: #fff;
+  display: flex;
+  font-size: 36rpx; 
+  justify-content: row;
+  text-align: center;
+  color: #333333;
+}
+.sum .sum-item{
+  width: 50%;
+  justify-content: column;
+}
+.sum .sum-item view{
+  display: block; 
+  width: 100%; 
+  font-size: 32rpx;
+    color: #333333;  
+}
+.sum .sum-item view:nth-child(2){
+font-size: 36rpx;
+}

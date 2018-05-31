@@ -1,0 +1,71 @@
+.login {
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+  font-size: 30rpx;
+  color: #353535;
+}
+
+.login .section {
+  margin-top: 40rpx;
+  margin-left: 5rpx;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  border-bottom: 1px solid #ddd;
+}
+.login .section.account{
+  margin-top: 50rpx;
+}
+.login .section .iconfont{
+  /*margin-top: -2rpx;*/
+  padding-right: 30rpx;
+}
+.login .section:first-child {
+  border-bottom: none;
+   margin-top: 0rpx;
+}
+
+.login .section .logo {
+  display: inline-block;
+  width: 200rpx;
+  height: 200rpx;
+  margin: 0 auto;
+}
+.login .section input{
+  margin-top: 5rpx;
+}
+.login .section .yzm-input{
+  border-right: 1px solid #ddd;  
+}
+.login .section .icon-yanzhengma{
+  color: #888;
+}
+.login .section .yzm{
+  display: inline-block;
+  width: 200rpx;
+  height: 80rpx;
+  margin-left: 20rpx;
+  margin-top: -20rpx; 
+}
+
+.login .tips{
+  color: #e64340;
+  text-align: center;
+  margin: 20rpx 0;
+}
+.login .help{
+  color: #888;
+  margin-top: 20rpx;
+  text-align: center;
+}
+.login .help .iconfont{
+  color: #ffa902;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+}
+
+.login .weui-btn{
+  margin-top: 40rpx;
+  background:#ffa902;
+}

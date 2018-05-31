@@ -1,0 +1,43 @@
+
+  <c-header></c-header>
+<view class='container'>
+
+  <view class='detail'>
+    <view class='detail-title'>
+      <view class='{{tab1? "active" : "default"}} iconfont icon-shijian' bindtap='selectTab1'>
+        每日奖励
+      </view>
+      <view class='{{tab2? "active" : "default"}} iconfont icon-qian' bindtap='selectTab2'>已领取奖励</view>
+    </view>
+    <view class='detail-content'>
+      <view class='{{tab1? "show" : "hidden"}}'>
+        <block wx:if="{{everydayAward.length > 0}}">
+          <view wx:for="{{everydayAward}}" wx:key="*this">
+            <view class='list'>
+              <text>{{item.statDate}}</text>
+              <text>{{item.reward}}元</text>
+            </view>
+          </view>
+          <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+          </view>
+        </block>
+        <view wx:else class='no-data'>暂无数据</view>
+      </view>
+
+
+      <view class='{{tab2? "show" : "hidden"}}'>
+        <block wx:if="{{hadAward.length > 0}}">
+          <view wx:for="{{hadAward}}" wx:key="this">
+            <view class='list'>
+              <text>{{item.statDate}}</text>
+              <text>{{item.reward}}元</text>
+            </view>
+          </view>
+        </block>
+        <view wx:else class='no-data'>暂无数据</view>
+      </view>
+    </view>
+  </view>
+</view>

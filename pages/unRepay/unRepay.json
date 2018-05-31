@@ -1,0 +1,5 @@
+  {
+    "usingComponents": {
+      "c-header": "../common/header/header"
+    }
+  }
