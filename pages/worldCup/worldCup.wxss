@@ -13,7 +13,42 @@
   width: 100%;
   box-sizing: border-box;
   background: #eee;
-  padding: 40rpx 80rpx;  
+  padding: 20rpx 40rpx;  
   border-radius: 40rpx;
   margin: 10rpx auto;
+}
+
+.choose-star{
+  height: 200rpx;
+}
+
+.star-panel{
+  height: 450rpx;
+}
+
+.list-wrapper{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.list-wrapper .list{
+  flex-basis: 22%;
+  height: 200rpx;
+  box-sizing: border-box;
+  background: #ddd;
+  overflow: hidden;
+}
+.list-wrapper .list image{
+  display: block;
+  width: 120rpx;
+  height:120rpx;
+  margin: 0 auto;  
+}
+.list-wrapper .list .star-info{
+  font-size:24rpx;
+  font-weight: blod;
 }

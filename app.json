@@ -1,5 +1,6 @@
 {
   "pages": [
+   
     "pages/worldCup/worldCup",
     "pages/start/start",
     "pages/login/login",

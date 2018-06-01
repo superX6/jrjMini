@@ -118,10 +118,8 @@ Page({
               return;
             }
             if (res.data.code != 0) {
-              // 模拟微信授权登录成功 调转到活动页面
-              wx.navigateTo({
-                url: '../worldCup/worldCup',
-              })
+              // 模拟微信授权登录成功 调转到活动页面              
+              wx.navigateBack({})
               
 
 

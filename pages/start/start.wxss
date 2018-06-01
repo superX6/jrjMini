@@ -21,4 +21,5 @@ page{
   overflow: hidden;
   justify-content: space-between;
   box-sizing: border-box;
+  background-size: 100% 100%;
 } 

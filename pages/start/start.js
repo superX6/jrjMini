@@ -65,7 +65,7 @@ Page({
   },
   toPage () {
     wx.navigateTo({
-      url: '../login/login',
+      url: '../worldCup/worldCup',
     })
   },
   checkSessionAndGetData: function () {

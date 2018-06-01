@@ -1,19 +1,32 @@
 <view class="container">
+  <view class='panel choose-star'>
+    <image></image>
+    <view>竞猜世界杯金球奖得主？</view>
+  </view>
+
+
+
+  <view class="page-section page-section-spacing swiper panel ">
+    <swiper class='star-panel' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{starList}}" wx:key="*this" wx:for-item="starArray" wx:for-index="arrayIndex">
+        <swiper-item>
+          <view class="swiper-item" style='background:skyblue;width:100%;height:100%;'>
+            <view class='list-wrapper'>
+              <block wx:for="{{starArray.starList}}" wx:key="*this" wx:for-index="itemIndex">
+                <view class='list' bindtap='chooseStar' data-array-index='{{arrayIndex}}' data-item-index='{{itemIndex}}'>
+                  <image src='{{item.imgUrl}}'></image>
+                  <view class='star-info'>{{item.name}}</view>
+                  <view class='star-info'>{{item.nationality}}</view>
+                </view>
+              </block>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
   <view class='panel'>竞猜世界杯金球奖得主？</view>
-   
 
-
-     <view class="page-section page-section-spacing swiper panel">
-      <swiper
-        indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
-        interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
-        <block wx:for="{{background}}" wx:key="*this">
-          <swiper-item>
-            <view class="swiper-item {{item}}">{{item}}</view>
-          </swiper-item>
-        </block>
-      </swiper>
-    </view>
-
-    <view class='panel'>竞猜世界杯金球奖得主？</view>
+  <button open-type="share"> 分享</button>
 </view>
