@@ -76,9 +76,9 @@ Page({
     if (!e.detail.userInfo) {
       return;
     }   
-  
-    wx.setStorageSync('userInfo', e.detail.userInfo);
 
+    console.log(e)  
+    wx.setStorageSync('userInfo', e.detail.userInfo);
     //已经授权 微信登录
     this.login();
   },
@@ -105,37 +105,31 @@ Page({
       return;
     }
     wx.login({
-      success: function (res) {
+      success: function (res) {      
         wx.request({
-          url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/wxapp/login',
+          url: getApp().globalData.path + 'worldCup/getOpenid',
+          method: 'POST',
+          header: { "Content-Type": "application/x-www-form-urlencoded" },
           data: {
             code: res.code
           },
-          success: function (res) {
-            if (res.data.code == 10000) {
-              // 去注册
-              that.registerUser();
+          success: function (res) { 
+            if (res.data.code !== 0) {             
+              wx.removeStorageSync('token')
+              wx.showModal({
+                title: '提示',
+                content: '无法登录，请重试',
+                showCancel: false
+              })
               return;
             }
-            if (res.data.code != 0) {
-              // 模拟微信授权登录成功 调转到活动页面              
-              wx.navigateBack({})
-              
-
-
-              // 登录错误
-              // wx.hideLoading();
-              // wx.showModal({
-              //   title: '提示',
-              //   content: '无法登录，请重试',
-              //   showCancel: false
-              // })
-              // return;
-            }
-            wx.setStorageSync('token', res.data.data.token)
-            wx.setStorageSync('uid', res.data.data.uid)
-            // 回到原来的地方放
-            wx.navigateBack();
+            if (res.data.code === 0) {
+              console.log(5555555)
+              wx.setStorageSync('token', res.data.data.openid);                  
+              // 回到原来的地方放
+              wx.navigateBack();
+              return;
+            }          
           }
         })
       }

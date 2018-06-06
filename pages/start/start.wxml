@@ -1,5 +1,5 @@
 <!--pages/start/start.wxml-->
 <view class='container' style="background-image:url('../../images/start.png');">
-<button bindtap='toPage' style='background:#f00;margin-top:800rpx;color:#fff;'>助力球星</button>
+<button bindtap='toPage'>立即为球星助力</button>
 </view>
 

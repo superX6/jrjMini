@@ -1,0 +1,22 @@
+.container {
+  height: 100%;
+  background: #fff;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  font-family: 'Tahoma';
+}
+
+.container .title {
+  width: 100%;
+  font-size: 32rpx;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 20rpx;
+}
+
+.container .rule {
+  width: 100%;
+  margin-bottom: 10rpx;
+  font-weight: 600;
+  font-family: 'Tahoma';
+}

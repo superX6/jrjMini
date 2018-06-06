@@ -1,7 +1,19 @@
 <view class="container">
+
+  <view class='rule-btn' bindtap='toRulePage'> 活动规则</view>
   <view class='panel choose-star'>
-    <image></image>
-    <view>竞猜世界杯金球奖得主？</view>
+    <image src='{{chooseUrl}}'></image>
+    <view class='text'>
+      <view class='info'>{{tipsText}}</view>
+      <view class='info'>姓名：
+        <text>{{starName}}</text>
+      </view>
+      <view class='info'>国籍：
+        <text>{{starNationality}}</text>
+      </view>
+    </view>
+    <button class='weui-btn show-btn' disabled='{{confirmBtn}}' type='primary' wx:if='{{chooseFlag}}' bindtap="showDialogBtn">确认选择</button>
+    <!-- <button class='weui-btn show-btn' disabled='{{confirmBtn}}' type='primary' wx:if='{{!chooseFlag}}' bindtap="callUp">今日助力</button> -->
   </view>
 
 
@@ -10,13 +22,13 @@
     <swiper class='star-panel' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{starList}}" wx:key="*this" wx:for-item="starArray" wx:for-index="arrayIndex">
         <swiper-item>
-          <view class="swiper-item" style='background:skyblue;width:100%;height:100%;'>
+          <view class="swiper-item" style='width:100%;height:100%;'>
             <view class='list-wrapper'>
               <block wx:for="{{starArray.starList}}" wx:key="*this" wx:for-index="itemIndex">
                 <view class='list' bindtap='chooseStar' data-array-index='{{arrayIndex}}' data-item-index='{{itemIndex}}'>
-                  <image src='{{item.imgUrl}}'></image>
-                  <view class='star-info'>{{item.name}}</view>
-                  <view class='star-info'>{{item.nationality}}</view>
+                  <image src='{{item.imgName}}' class='{{curIndex === (arrayIndex+""+itemIndex) ? "cur" : ""}}'></image>
+                  <view class='star-info name'>{{item.name}}</view>
+                  <view class='star-info'>{{item.contry}}</view>
                 </view>
               </block>
             </view>
@@ -26,7 +38,55 @@
     </swiper>
   </view>
 
-  <view class='panel'>竞猜世界杯金球奖得主？</view>
 
-  <button open-type="share"> 分享</button>
+  <!-- <view class='panel' style='height:120rpx;'></view> -->
+
+  <button class='weui-btn invite' type='primary' bindtap='toSharePage'> 进入球星助力</button>
+
+  <view bindtap='toLoginPage' class='to-login'>登录金融街随手记</view>
+
+  <view class='rank-list panel'>
+    <view class='rank-item'>
+      <view class='index item'>N0.1</view>
+      <image class='vatar' src='{{chooseUrl}}'></image>
+      <view class='nick-name item'>superx</view>
+      <view class='count item'>10088</view>
+    </view>
+      <view class='rank-item'>
+      <view class='index item'>N0.1</view>
+      <image class='vatar' src='{{chooseUrl}}'></image>
+      <view class='nick-name item'>superx</view>
+      <view class='count item'>10088</view>
+    </view>
+      <view class='rank-item'>
+      <view class='index item'>N0.1</view>
+      <image class='vatar' src='{{chooseUrl}}'></image>
+      <view class='nick-name item'>superx</view>
+      <view class='count item'>10088</view>
+    </view>
+  </view>
+
+
+
+
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">确认球星</view>
+    <view class="modal-content">
+      <view class='info'>
+        <image src='{{chooseUrl}}'></image>
+      </view>
+      <view class="modal-input">
+        <input placeholder-class="input-holder" value='{{phone}}' type="number" maxlength="11" bindinput="inputChange" class="input" placeholder="请输入您的手机号"></input>
+      </view>
+      <view class='tips'>
+        <view>不可更改，每个ID只能注册一次</view>
+        <view>填写电话号码，方便获奖联系</view>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    </view>
+  </view>
 </view>
