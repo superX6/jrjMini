@@ -18,7 +18,7 @@
     <button class='weui-btn' type='primary' formType="submit" bindtap="loginBtnClick">{{loginText}}</button>
   </view>
   <view class='help'>
-    <text>遇到困难？</text>
-    <text class="iconfont icon-icon32206" bindtap='call'>联系客服</text>    
+    <text class='toH5 iconfont icon-yonghu' bindtap='toWebPage'>注册领取千元红包</text>
+    <text class="iconfont icon-icon32206" style='color:#666' bindtap='call'>联系客服</text>    
   </view>
 </view>

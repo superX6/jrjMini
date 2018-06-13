@@ -1,6 +1,9 @@
 <view class="container">
+  <view class='rule-btn' bindtap='toRulePage'> 活动 规则</view>
+  <button class="cs_button" open-type="contact" session-from="weapp">
+  <image class="cs_image" src="{{kefuUrl}}"></image>
+</button>
 
-  <view class='rule-btn' bindtap='toRulePage'> 活动规则</view>
   <view class='panel choose-star'>
     <image src='{{chooseUrl}}'></image>
     <view class='text'>
@@ -9,11 +12,12 @@
         <text>{{starName}}</text>
       </view>
       <view class='info'>国籍：
-        <text>{{starNationality}}</text>
+        <text>{{contry}}</text>
       </view>
     </view>
-    <button class='weui-btn show-btn' disabled='{{confirmBtn}}' type='primary' wx:if='{{chooseFlag}}' bindtap="showDialogBtn">确认选择</button>
+    <button class='weui-btn show-btn' disabled='{{confirmBtn}}' type='primary' wx:if='{{showChooseBtn}}' bindtap="showDialogBtn">确认选择</button>
     <!-- <button class='weui-btn show-btn' disabled='{{confirmBtn}}' type='primary' wx:if='{{!chooseFlag}}' bindtap="callUp">今日助力</button> -->
+    <button class='weui-btn show-btn' type='primary' bindtap='toSharePage' wx:if='{{!showChooseBtn}}'> 球星助力</button>
   </view>
 
 
@@ -28,7 +32,7 @@
                 <view class='list' bindtap='chooseStar' data-array-index='{{arrayIndex}}' data-item-index='{{itemIndex}}'>
                   <image src='{{item.imgName}}' class='{{curIndex === (arrayIndex+""+itemIndex) ? "cur" : ""}}'></image>
                   <view class='star-info name'>{{item.name}}</view>
-                  <view class='star-info'>{{item.contry}}</view>
+                  <view class='star-info contry'>{{item.contry}}</view>
                 </view>
               </block>
             </view>
@@ -41,33 +45,11 @@
 
   <!-- <view class='panel' style='height:120rpx;'></view> -->
 
-  <button class='weui-btn invite' type='primary' bindtap='toSharePage'> 进入球星助力</button>
+  <!-- <button class='weui-btn invite' type='primary' bindtap='toSharePage'> 进入球星助力</button> -->
 
-  <view bindtap='toLoginPage' class='to-login'>登录金融街随手记</view>
+  <!-- <view bindtap='toLoginPage' class='to-login'>登录金融街随手记</view> -->
 
-  <view class='rank-list panel'>
-    <view class='rank-item'>
-      <view class='index item'>N0.1</view>
-      <image class='vatar' src='{{chooseUrl}}'></image>
-      <view class='nick-name item'>superx</view>
-      <view class='count item'>10088</view>
-    </view>
-      <view class='rank-item'>
-      <view class='index item'>N0.1</view>
-      <image class='vatar' src='{{chooseUrl}}'></image>
-      <view class='nick-name item'>superx</view>
-      <view class='count item'>10088</view>
-    </view>
-      <view class='rank-item'>
-      <view class='index item'>N0.1</view>
-      <image class='vatar' src='{{chooseUrl}}'></image>
-      <view class='nick-name item'>superx</view>
-      <view class='count item'>10088</view>
-    </view>
-  </view>
-
-
-
+  <button class='weui-btn to-login-btn' type='primary' bindtap='toLoginPage'> 登录金融街随手记</button>
 
   <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
   <view class="modal-dialog" wx:if="{{showModal}}">

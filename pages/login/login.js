@@ -47,7 +47,7 @@ Page({
         }
       })
     } else {
-      console.log('未授权33');    
+      // console.log('未授权33');    
     }
   },
   myLogin: function () {
@@ -106,7 +106,7 @@ Page({
               }
             })
           } else {
-            console.log('获取用户登录态失败！' + res.errMsg)
+            // console.log('获取用户登录态失败！' + res.errMsg)
           }
         }
       })
@@ -123,13 +123,18 @@ Page({
       phoneNumber: '4009622230'
     })
   },
+  toWebPage: function() {
+    wx.navigateTo({
+      url: '../webPage/webPage',
+    })
+  },
   /**
  * 用户点击右上角分享
  */
   onShareAppMessage: function (res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮
-      console.log(res.target)
+      // console.log(res.target)
     }
     return {
       title: '金融街在线理财师',

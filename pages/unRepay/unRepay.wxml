@@ -1,4 +1,4 @@
-<c-header></c-header>
+ <c-header bindmyevent="toWorldCupPage"></c-header>
 
 <view class='container'>
 

@@ -52,7 +52,7 @@ page{
     box-sizing: border-box;
 }
 .save-btn{
-    background-color: #6eb0ea;
+    background-color: #14ac33;
     color:#fff;
 }
 button[type="default"]{

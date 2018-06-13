@@ -1,5 +1,11 @@
 <!--pages/start/start.wxml-->
-<view class='container' style="background-image:url('../../images/start.png');">
-<button bindtap='toPage'>立即为球星助力</button>
-</view>
+<view class='container'>
+  <view class='content'>
+    <button bindtap='toPage'>立即为球星助力</button>
+    <view class='tips'>
+    <view>助力球星， 赢取无人机，机器人等大奖，</view>
+    <view>不定期有啤酒送出</view>
+    </view>    
+  </view> 
 
+</view>

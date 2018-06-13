@@ -1,6 +1,8 @@
 <!--pages/common/header/header.wxml-->
-<view>
+<view>   
+<button class='weui-btn return-btn' type='primary' style='background: #ffa902;' bindtap='toWorldCupPage'>助力</button> 
    <view class='header'>
+   
     <text class='info-item'>{{bucket}}</text>
     <view class='info-item'>余额：
       <text>{{availablebalance}}</text>元</view>
@@ -22,7 +24,6 @@
         <text> {{dueincapital}}</text>
         <text>元</text>
       </view>
-
     </view>
   </view>
 </view>

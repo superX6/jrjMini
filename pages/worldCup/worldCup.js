@@ -3,10 +3,6 @@ var app = getApp();
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-
   data: {  
     indicatorDots: true,
     vertical: false,
@@ -14,46 +10,57 @@ Page({
     interval: 2000,
     duration: 500,
     curIndex: 0,
+    contry: '???',
     curId: '',
     starName: '???',
-    starNationality: '???',
-    chooseFlag: true,
+    kefuUrl: '',
+    showChooseBtn: true,
     confirmBtn: true,
     stopChoose: false,
-    tipsText: '竞猜世界杯金球奖得主',
+    tipsText: '选择助力球星',
     phone: '',
     a: 'ss',
-    chooseUrl: 'https://uat.jrjzx.cn/p2pmini//statics/build/img/star/un.png',
+    chooseUrl: getApp().globalData.path + 'statics/build/img/star/un.png',
     showModal: false  
   },
   chooseStar(event) {
-    if (this.data.stopChoose){
-      return ;
-    }
     var arrayIndex = event.currentTarget.dataset.arrayIndex;
     var itemIndex = event.currentTarget.dataset.itemIndex;
-    var temList = this.data.starList;  
+    var temList = this.data.starList;
     var temArr = temList[arrayIndex].starList;
-    var temUrl = temArr[itemIndex].imgName;       
-    this.setData({
-      curId: arrayIndex * 8 + (itemIndex+1),
-      curIndex: arrayIndex + '' + itemIndex,
-      confirmBtn: false,
-      chooseUrl: temUrl,
-      starName: temArr[itemIndex].name,
-      starNationality: temArr[itemIndex].contry
-    })
-    console.log(this.data.curId)    
+    
+    if (this.data.stopChoose){
+      var starId = arrayIndex * 8 + (itemIndex + 1)
+      var starName = temArr[itemIndex].name;
+      wx.navigateTo({
+        url: '../rankPage/rankPage?starId=' + starId + "&starName=" + starName
+      })
+      return ;
+    } else{         
+     
+      var temUrl = temArr[itemIndex].imgName;
+      this.setData({
+        curId: arrayIndex * 8 + (itemIndex + 1),
+        curIndex: arrayIndex + '' + itemIndex,
+        confirmBtn: false,
+        chooseUrl: temUrl,
+        starName: temArr[itemIndex].name,
+        contry: temArr[itemIndex].contry
+      })
+      // console.log(this.data.curId)  
+    }     
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      kefuUrl: getApp().globalData.path + "statics/build/img/star/kefu.png"
+    })
 
-    console.log(wx.getStorageSync('token'))
     var that = this;
-   
+   //获取球星列表
     wx.request({
       url: getApp().globalData.path + "worldCup/starList/",
       method: "POST",
@@ -80,43 +87,36 @@ Page({
             ]
           })
         }
-        console.log(that.data.starList)
+        // console.log(that.data.starList)
       }
     })
+
+  // 获取我的球星数据情况
+    wx.request({
+      url: app.globalData.path + "worldCup/myStar",
+      method: "POST",
+      data: {
+        openid: wx.getStorageSync('worldCupToken')
+      },
+      header: { "Content-Type": "application/x-www-form-urlencoded" },
+      success: function (res) {
+        if (res.data.code === 0) {          
+          that.setData({
+            showChooseBtn: false,
+            tipsText: '已选球星',
+            stopChoose: true,
+            chooseUrl: app.globalData.path + res.data.data.imgName,
+            starName: res.data.data.name,
+            contry: res.data.data.contry          
+          })
+        }
+      }
+    })
+
+
   },
 
- 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function (res) {
 
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(res.target)
-    }
-    return {
-      title: '7766',
-      path: '/page/user?id=123'
-    }
-  },
-  // handleChooseStar () {
-  //   wx.showModal({
-  //     title: '提示',
-  //     content: `<view>
-  //     <text>请输入你的电话号码</text>
-  //     <input />
-  //     <button class='weui-btn'>选定支持球星</button>
-  //     </view>`,
-  //     success: function (res) {
-  //       if (res.confirm) {
-  //         console.log('用户点击确定')
-  //       } else if (res.cancel) {
-  //         console.log('用户点击取消')
-  //       }
-  //     }
-  //   })
-  // },
   showDialogBtn: function () {
     this.setData({
       showModal: true
@@ -155,6 +155,7 @@ Page({
     }
   },
   onConfirm: function () {
+    var that = this;
     var phoneReg = /^(13[0-9]|15[012356789]|18[0-9]|14[57]|17[0-9])[0-9]{8}$/;   
     if (!phoneReg.test(this.data.phone)) {
       wx.showModal({
@@ -164,10 +165,10 @@ Page({
       this.setData({
         phone: ''
       })  
-    }else{  
-    
+    }else{      
+      var nickName = wx.getStorageSync('userInfo').nickName;
       var curImgUrl = wx.getStorageSync('userInfo').avatarUrl;
-      var curOpenId = wx.getStorageSync('token');
+      var curOpenId = wx.getStorageSync('worldCupToken');
      
       wx.request({
         url: getApp().globalData.path + "worldCup/acquireStar",
@@ -177,23 +178,30 @@ Page({
           starId: this.data.curId,
           mobile: this.data.phone,
           headImgUrl: curImgUrl,
+          nickName: nickName  
         },
         header: { "Content-Type": "application/x-www-form-urlencoded" },
         success: function(res){
           console.log(res.data)
           if (res.data.code === 0) {  
-            
+            that.setData({
+              tipsText: '已选球星',
+              showChooseBtn: false,
+              stopChoose: true
+            })          
+          } else{
+            wx.showToast({
+              title: '领取失败',
+              icon: 'none',
+              duration: 2000,
+              image: app.globalData.path + 'statics/build/img/star/error.png'
+            })
           }
+          that.hideModal();
         }
       })
 
-      this.setData({
-        tipsText: '已选球星',
-        chooseFlag: false,
-        stopChoose: true
-      })
-
-      this.hideModal();
+     
     }  
   },
   toRulePage: function () {
@@ -201,9 +209,17 @@ Page({
       url: '../rulePage/rulePage',
     })
   },
-  toSharePage: function () {
+  toSharePage: function () {   
+    var myToken = wx.getStorageSync('worldCupToken');
     wx.navigateTo({
-      url: '../sharePage/sharePage',
+      url: '../sharePage/sharePage?worldCupToken=' + myToken +'&type=1' // 自身调整 type=1
+      // url: '../sharePage/sharePage?worldCupToken=' + myToken + '&type=2&avatarUrl=' + this.data.chooseUrl,
+       
+    })
+  },
+  toLoginPage: function() {
+    wx.navigateTo({
+      url: '../login/login'
     })
   }
 })

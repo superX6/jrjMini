@@ -7,8 +7,8 @@ page{
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background:url('https://uat.jrjzx.cn/p2pmini/statics/build/img/star/banner.png') #f0f0f0 no-repeat;
-  background-size: contain;
+  background:url('https://www.jrjzx.cn/p2pmini/statics/build/img/star/share_bg.png') #f0f0f0 no-repeat;
+  background-size: contain; 
 }
 
 .container {
@@ -32,17 +32,32 @@ page{
 .container .user-info{
   height: 200rpx;
   background: #fff;
-  margin-top: 230rpx;
+  margin-top: 145rpx;
   display: flex;
 }
 .container .user-info .info-text{
-    line-height: 56rpx;
-    width: 50%;
-  font-size: 30rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  line-height: 56rpx;
+  width: 50%;
+  font-size: 27rpx;
   font-weight: blod;
+  flex: 1;
+}
+
+
+.container .user-info .info-text text{
+  color: #fc6e00;
+  margin-left: 10rpx;
+  font-weight: bold;
+}
+.container .user-info .info-text view{
+  flex-basis: 50%;
 }
 .container .user-info .info-text progress{
   margin-top: 15rpx;
+  flex-basis: 85%;
 }
 .container .user-info image{
   display: inline-block;
@@ -68,27 +83,30 @@ page{
   display: block;
   text-align: center;
   margin: 0 auto;
-  width: 220rpx;
-  height: 220rpx;
+  width: 260rpx;
+  height: 260rpx;
   border-radius: 50%;
 }
 .share button{
-  width: 90%;
+  width: 80%;
   margin: 20rpx auto;
   border-radius: 20rpx;
 }
  .friends{   
-  height: 100rpx; 
+  height: 168rpx; 
   padding: 10rpx;
-  margin-top: 20rpx;
+  margin-top: 35rpx;
+  overflow: hidden;
 }
 
  .friends image{
   display: inline-block;
-  width: 60rpx;
-  height: 60rpx; 
+  width: 65rpx;
+  height: 65rpx; 
   border-radius: 50%;
-  margin-left: 10rpx; 
+  margin-left: 3rpx; 
+  margin-top: -10rpx;
+  margin-bottom: 14rpx; 
 }
 
 .share .want-play{
@@ -96,9 +114,12 @@ page{
 }
 .title-wrapper{
   display: flex;
+  line-height: 18rpx;
 }
 .title-wrapper .line{
   flex: 1;
+  height: 10rpx;
+  line-height: 10rpx;
   border-top: 1rpx solid #ccc;
   box-sizing: border-box;
   padding: 20rpx;
@@ -106,6 +127,6 @@ page{
 .title-wrapper .title2{
   padding: 0 20rpx;
   position: relative;
-  top: -20rpx;
+  top: 0rpx;
   z-index: 99;
 }

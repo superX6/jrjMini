@@ -1,17 +1,48 @@
 .container {
-  height: 100%;
-  background: #fff;
-  padding: 20rpx 30rpx;
+ overflow: hidden;
+  background: #fff; 
   box-sizing: border-box;
   font-family: 'Tahoma';
 }
 
-.container .title {
+.rule-wrapper{
   width: 100%;
+  height: 1430rpx;
+   box-sizing: border-box; 
+
+   background:url('https://www.jrjzx.cn/p2pmini/statics/build/img/star/rule.jpg')  no-repeat;  
+  background-size: 100% 100%;
+  overflow: hidden;
+}
+.rule-wrapper .rule-box{
+  width: 92%;  
+  margin: 0 auto;
+  margin-top: 800rpx;
+  border: 6rpx solid #0c9929;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  padding: 50rpx 20rpx 30rpx;
+  position: relative;
+  background: #f8eeac;
+  
+}
+
+.container .title {
+  width: 300rpx;
+  height: 87rpx;
+  line-height: 87rpx;
+  color: #fff;
+  position: absolute;
+  z-index: 9999;
+  left: 50%;
+  top: -45rpx;
+  margin-left: -150rpx;
   font-size: 32rpx;
   font-weight: 700;
-  text-align: left;
-  margin-bottom: 20rpx;
+  text-align: center;
+  background: #27bf46;
+  border-radius: 20rpx;
+  box-shadow: 0 5rpx 15rpx #cac18c;  
 }
 
 .container .rule {
@@ -19,4 +50,15 @@
   margin-bottom: 10rpx;
   font-weight: 600;
   font-family: 'Tahoma';
+}
+.container .rule .strong{
+  color: #fc0000;
+}
+.container .prize{
+ width: 100%;
+ height: 1340rpx;
+ display: block;
+   background:url('https://www.jrjzx.cn/p2pmini/statics/build/img/star/prize.jpg')  no-repeat;  
+  background-size: 100% 100%;
+  vertical-align: top;
 }

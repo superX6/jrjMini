@@ -1,0 +1,13 @@
+<view class='container'>
+  <view class='title'>{{starName}}: 助力排行榜</view>
+  <view class='rank-list panel'>  
+    <block wx:for="{{rankList}}" wx:key="*this">
+      <view class='rank-item'>
+        <view class='index item  {{item.rank === 1 ? "first" : ""}}'>N0.{{item.rank}}</view>
+        <image class='vatar' src='{{item.headImgUrl}}'></image>
+        <view class='nick-name item'>{{item.nickName}}</view>
+        <view class='count item {{item.rank === 1 ? "first" : ""}}'>{{item.supportTimes}}</view>
+      </view>
+    </block>
+  </view>
+</view>

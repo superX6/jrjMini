@@ -1,6 +1,6 @@
 .login {
   width: 90%;
-  margin: auto;
+  margin:0 auto;
   overflow: hidden;
   font-size: 30rpx;
   color: #353535;
@@ -68,4 +68,8 @@
 .login .weui-btn{
   margin-top: 40rpx;
   background:#ffa902;
+  
+}
+.toH5{
+  color: #14ac33;
 }

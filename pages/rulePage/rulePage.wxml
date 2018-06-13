@@ -1,30 +1,23 @@
 <view class='container'>
-  <view class='title'>XXX活动规则</view>
-  <view class='rule'>1. 找到你喜欢的球星并为他助力（认领后不能更换哦），每助力一次该球星的热度值上涨1，每日最多可助力1次，助力完毕后即可查看该球星即时热度榜；
+  <view class='rule-wrapper'>
 
- </view>
+    <view class='rule-box'>
 
-  <view class='rule'>
-    2. 助力机会用完了？赶快将游戏分享给朋友，每分享一次就能获得一次额外助力机会；
+      <view class='title'>活动规则</view>
+      <view class='rule'>1.  关注订阅号“金融街online”从下拉菜单或活动推文进入小程序。</view>
+
+      <view class='rule'>2.  找到你喜欢的球星（选择后不能更换哦），每日为他助力一次，每次助力该球星的热度值上涨1。</view>
+
+      <view class='rule'>3.  助力机会用完了？赶快将游戏分享给朋友，每次转发均能获得一次额外的助力机会。</view>
+
+      <view class='rule'>4.  <text class='strong'>助力值率先达到300即送啤酒一箱，率先达到600再送一箱 </text> ，先到先得，送完即止，快约上你的小伙伴high爽世界杯！</view>
+
+      <view class='rule'>若你支持的球星最终获得“2018年俄罗斯世界杯最佳球员”称号，为他助力最多的你即可获得以下大奖:</view>
+
+    
+    </view>
   </view>
 
-  <view class='rule'>
-    3. 助力值率先达到300即送啤酒一箱，率先达到600再送一箱，先到先得，送完即止，快约上你的小伙伴high爽世界杯！
+  <view class='prize'></view>
 
-  </view >
-
-  <view class='rule'>
-    4. 若你支持的球星最后成为了2018年俄罗斯世界杯最佳球员，为他助力最多的你就可获得以下大奖：第1名大疆无人机一台；第2名小米扫地机器人一个；第3名小米蓝牙音箱一个；没排上前3也不要伤心，金融街在线还为你准备了专属红包大奖，每次助力=5元投资红包；
-
-  </view>
-
-  <view class='rule'>
-
-    5. 对于恶意刷票者，一经查实，取消活动资格，所有奖励不予承兑；
-
-  </view>
- 
-  <view class='rule'>
-   6. 此活动的最终解释权归金融街在线所有。
-  </view>
 </view>

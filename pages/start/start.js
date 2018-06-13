@@ -1,4 +1,6 @@
 // pages/start/start.js
+var app = getApp();
+var util = require('../../utils/util.js');
 Page({
 
   /**
@@ -12,9 +14,37 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-      url: '',
-    })
+
+    const type = util.getCurrentPageUrlOptions().type;  
+
+    if(type === '3') {
+      wx.navigateTo({
+        url: '../worldCup/worldCup',
+      })
+    } else{
+      // 获取用户信息
+      wx.getSetting({
+        success: res => {
+          if (res.authSetting['scope.userInfo'] && wx.getStorageSync('worldCupToken')) {
+            // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+            console.log('已授权')
+            wx.getUserInfo({
+              success: res => {
+                wx.navigateBack({})
+              }
+            })
+          } else {
+            // console.log('授权登录')
+            // return; //调试断点       
+            wx.navigateTo({
+              url: '../authorize/authorize'
+            })
+          }
+        }
+      })
+    }
+
+
   },
 
   /**
@@ -23,40 +53,15 @@ Page({
   onShareAppMessage: function () {
   
   },
-  toPage () {
-    wx.navigateTo({
-      url: '../worldCup/worldCup',
-    })
-  },
-  checkSessionAndGetData: function () {
-    var thirdSession = wx.getStorageSync('thirdSession');
-    if (thirdSession) {
-      wx.request({
-        url: getApp().globalData.path + '/checkThirdSession',
-        method: 'POST',
-        header: { "Content-Type": "application/x-www-form-urlencoded" },
-        data: {
-          thirdSession: thirdSession
-        },
-        success: function (res) {
-          var ERROK = res.data.code;
-          if (ERROK == 0) {
-            wx.reLaunch({
-              url: '../award/award'
-            })
-          } else if (ERROK == -2) {
-            wx.showModal({
-              title: '提示',
-              content: '请重新登录',
-            });
-          }
-        }
+  toPage () {    
+    if (wx.getStorageSync('worldCupToken')){
+      wx.navigateTo({
+        url: '../worldCup/worldCup',
       })
-    } else {
-      console.log('未授权');
+    } else{
       wx.navigateTo({
         url: '../authorize/authorize',
       })
-    }
+    }   
   }
 })

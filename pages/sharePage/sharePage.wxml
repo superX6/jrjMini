@@ -2,37 +2,39 @@
   <view class='user-info panel'>
     <image src='{{avatarUrl}}'></image>
     <view class='info-text'>
-      <view>助力数： {{supportTimes}}</view>
-      <view>当前排名： {{curRank}}</view>
-      <progress percent="80" active />
+
+      <view>个人助力值
+         <text>{{supportTimes}}</text>         
+        </view>
+      <!-- <view>助力最高值
+        <text>{{topTimes}}</text> </view> -->
+      <view>个人排名
+        <text>{{myRanking}}</text> </view>
+      <view>球星总热值
+        <text>{{starSupportTimes}}</text> </view>
+      <progress percent="{{progressValue}}" active />
     </view>
   </view>
 
+
   <view class='share panel'>
     <view class='title'>助力球星</view>
-    <image src='../../images/vatar.png'></image>
-    <button class='weui-btn want-play' bindtap='callUp' type='primary'>今日助力</button>
-    <button class='weui-btn' open-type='share' bindtap='share' type='primary'>邀请好友助力</button>
-    <!-- <button class='weui-btn want-play' type='primary'>我也要玩</button> -->
+    <image src='{{starUrl}}'></image>
+    <button class='weui-btn want-play' bindtap='callUp' type='primary'>{{todayText}}</button>
+    <button class='weui-btn' wx:if='{{showInviteButton}}' open-type='share' bindtap='share' type='primary'>邀请好友助力</button>
+    <button class='weui-btn' wx:if='{{!showInviteButton || showReturnButton}}' bindtap='toStartPage' type='primary'>{{playButtonText}}</button>
+
 
   </view>
   <view class='friends'>
-  <view class='title-wrapper'>
-    <view class='line'></view>
-      <view class='title2'>最近为您助力的好友</view>
-        <view class='line'></view>
-  </view>
-    <image src='{{avatarUrl}}'></image>
-    <image src='{{avatarUrl}}'></image>
-    <image src='{{avatarUrl}}'></image>
-    <image src='{{avatarUrl}}'></image>
-    <image src='{{avatarUrl}}'></image>
-    <image src='{{avatarUrl}}'></image>
-    <image src='{{avatarUrl}}'></image>
-    <image src='{{avatarUrl}}'></image>
-    <image src='{{avatarUrl}}'></image>
-    <image src='{{avatarUrl}}'></image>
-    <image src='{{avatarUrl}}'></image>
-    <image src='{{avatarUrl}}'></image>
+    <view class='title-wrapper'>
+      <view class='line'></view>
+      <view class='title2'>最近助力的好友</view>
+      <view class='line'></view>
+    </view>
+    <block wx:for="{{friendsUrl}}" wx:key="*this">
+      <image src='{{item}}'></image>
+    </block>
+
   </view>
 </view>

@@ -1,17 +1,16 @@
 {
   "pages": [
-    
-      "pages/sharePage/sharePage",
-"pages/start/start",
-       
-          
-    "pages/worldCup/worldCup",    
-   
+
+    "pages/start/start",
+    "pages/worldCup/worldCup",
+    "pages/sharePage/sharePage",
     "pages/login/login",
     "pages/unRepay/unRepay",
     "pages/award/award",
-    "pages/authorize/authorize",        
-    "pages/rulePage/rulePage"
+    "pages/authorize/authorize",
+    "pages/rulePage/rulePage",
+    "pages/rankPage/rankPage",
+    "pages/webPage/webPage"
   ],
   "tabBar": {
     "color": "#888",

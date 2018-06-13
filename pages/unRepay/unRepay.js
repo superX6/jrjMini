@@ -30,6 +30,11 @@ Page({
     });
 
   },
+  toWorldCupPage: function (e) {
+    wx.navigateTo({
+      url: '../worldCup/worldCup',
+    })
+  },
 
   /**
    * 页面上拉触底事件的处理函数
@@ -82,7 +87,7 @@ Page({
   onShareAppMessage: function (res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮
-      console.log(res.target)
+      // console.log(res.target)
     }
     return {
       title: '金融街在线理财师',

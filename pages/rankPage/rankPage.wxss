@@ -1,0 +1,82 @@
+.container{
+   overflow: auto; 
+   height: 100vh;
+ }
+.rank-list{
+  width: 92%;
+  margin-top: 50rpx;
+  overflow: hidden;
+  min-height: 92vh;
+  background: #fff;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border: 6rpx solid #ffe220;
+  border-radius: 20rpx;
+  padding: 40rpx 20rpx 0rpx;
+}
+ .title{
+  width: 450rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 0 auto;
+  font-size: 36rpx;
+  position: relative;
+  text-align: center;
+  border-radius: 30rpx;
+  top: 30rpx;
+  z-index: 99;
+  background: #ffe220;
+}
+.rank-list .rank-item{
+  display: flex;
+  height: 106rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #ccc;
+}
+.rank-list .rank-item:last-child{
+   border-bottom: none;
+}
+.rank-list .rank-item .item{
+  flex: 1;
+  line-height: 106rpx;
+   font-size: 32rpx;
+    text-align: left;
+}
+.rank-list .rank-item .index{ 
+  font-weight: bold;
+  color: #14ac33;
+}
+.rank-list .rank-item .index.first{ 
+  font-weight: bolder;
+  color: #fc6e00;
+  font-size: 42rpx;
+  position: relative;
+  left: -10rpx;
+}
+.rank-list .rank-item .count.first{ 
+  font-weight: bolder;
+  color: #fc6e00;
+  font-size: 42rpx;
+ 
+}
+
+.rank-list .rank-item image.vatar{
+  width: 90rpx;
+  height: 90rpx;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+  margin-top: 8rpx;
+  border-radius: 50%;
+  position: relative;
+  overflow: auto;
+}
+.rank-list .rank-item .nick-name{
+  flex: 2;
+  text-align: center;
+}
+
+.rank-list .rank-item .count{
+  flex: 2;
+  text-align: center;
+}

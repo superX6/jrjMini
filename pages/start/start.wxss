@@ -11,21 +11,36 @@ page{
   flex: 1;
   display: flex;
   flex-direction: column;
-  background: #6eb0ea;
   align-items: stretch;
   padding: 0;
   height: 100%;
   overflow: hidden;
   justify-content: space-between;
-  box-sizing: border-box;
+  box-sizing: border-box; 
+  background:url('https://www.jrjzx.cn/p2pmini/statics/build/img/star/start.png')  no-repeat;
   background-size: 100% 100%;
 } 
-.container button{
+.container .content{ 
+  margin-top:880rpx;
+}
+.container .content button{
   background:#f04418;
-  margin-top:988rpx;
+  width: 60%;
   color:#fff;
   font-weight:600;
   border: 8rpx solid #fffa9a;
-  padding: 12rpx 90rpx;
+  padding: 12rpx 70rpx;
   border-radius: 20rpx;
+}
+.container .content .tips{
+  width: 82%;
+  color:#046b1a;
+  font-weight:600;
+  font-size: 32rpx;
+  line-height: 42rpx;
+  text-align: center;
+  margin:20rpx auto 0;
+}
+.container .content .tips view{
+  margin-top: 10rpx;
 }
