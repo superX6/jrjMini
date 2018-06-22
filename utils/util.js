@@ -91,11 +91,27 @@ function getCurrentPageUrlOptions() {
 
   return options;
 }
+
+
+function wxpromisify(fn) {
+  return function(obj={}){
+    return new Promise((resolve, reject) =>{
+      obj.success = function(res){
+        resolve(res)
+      }
+      obj.fail = function (res) {
+        reject(res)
+      }
+      fn(obj)
+    })
+  }
+}
 module.exports = {
   formatTime: formatTime,
   json2Form: json2Form,
   toFixed2: toFixed2,
   getCurrentPageUrl: getCurrentPageUrl,
   getCurrentPageUrlWithArgs: getCurrentPageUrlWithArgs,
-  getCurrentPageUrlOptions: getCurrentPageUrlOptions
+  getCurrentPageUrlOptions: getCurrentPageUrlOptions,
+  wxpromisify: wxpromisify
 }

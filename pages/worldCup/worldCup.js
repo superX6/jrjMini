@@ -34,6 +34,7 @@ Page({
       var starName = temArr[itemIndex].name;
       wx.navigateTo({
         url: '../rankPage/rankPage?starId=' + starId + "&starName=" + starName
+        // url: '../rankPage/rankPage?starId=1'  + "&starName=" + starName
       })
       return ;
     } else{         

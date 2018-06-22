@@ -23,7 +23,7 @@
     <button class='weui-btn want-play' bindtap='callUp' type='primary'>{{todayText}}</button>
     <button class='weui-btn' wx:if='{{showInviteButton}}' open-type='share' bindtap='share' type='primary'>邀请好友助力</button>
     <button class='weui-btn' wx:if='{{!showInviteButton || showReturnButton}}' bindtap='toStartPage' type='primary'>{{playButtonText}}</button>
-
+ 
 
   </view>
   <view class='friends'>

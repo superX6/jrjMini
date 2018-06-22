@@ -183,12 +183,7 @@ Page({
         fromHeadimgurl: that.data.fromHeadimgurl       
       },
       success: function (res) {      
-        if (res.data.code === 0) {
-          wx.showToast({
-            title: res.data.message,
-            icon: 'success',
-            duration: 2000
-          })
+        if (res.data.code === 0) {      
           wx.showToast({
             title: '助力成功',
             icon: 'success',
@@ -204,7 +199,7 @@ Page({
         }
         if (res.data.code === -1) {
           wx.showToast({
-            title: res.data.message,
+            title: res.data.message || '助力失败',
             icon: 'none',
             duration: 2000,
             image: app.globalData.path + 'statics/build/img/star/error.png'
@@ -220,6 +215,13 @@ Page({
     })
   },
 
+  createImg: function(){
+    wx.navigateTo({
+      url: '../shareImage/shareImage',
+   
+    })
+  },
+
 
   /**
    * 用户点击右上角分享
@@ -227,6 +229,8 @@ Page({
   onShareAppMessage: function (ops) {
     
     var temUrl = this.data.starUrl;
+    var curPath = app.globalData.path + 'pages/sharePage/sharePage?worldCupToken=' + this.data.curOpenid + '&type=2&avatarUrl=' + this.data.avatarUrl
+    console.log(curPath)
     if (ops.from === 'button') {
       // 来自页面内转发按钮
       // console.log(ops)
@@ -235,7 +239,7 @@ Page({
       title: '为' + this.data.curStarName +'助力,赢取无人机大奖',
       path: '/pages/sharePage/sharePage?worldCupToken=' + this.data.curOpenid + '&type=2&avatarUrl=' + this.data.avatarUrl,   
       imageUrl: temUrl, 
-      success: function (res) {
+      success: function (res) {        
         // 转发成功       
         wx.showToast({
           title: '邀请成功',

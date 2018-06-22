@@ -9,4 +9,4 @@ App({
      path: "https://www.jrjzx.cn/p2pmini/"
     // path: "https://uat.jrjzx.cn/p2pmini/"
   }
-})
+}) 

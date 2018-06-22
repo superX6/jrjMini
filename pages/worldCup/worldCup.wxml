@@ -24,11 +24,11 @@
 
   <view class="page-section page-section-spacing swiper panel ">
     <swiper class='star-panel' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{starList}}" wx:key="*this" wx:for-item="starArray" wx:for-index="arrayIndex">
+      <block wx:for="{{starList}}" wx:key="arrayIndex" wx:for-item="starArray" wx:for-index="arrayIndex">
         <swiper-item>
           <view class="swiper-item" style='width:100%;height:100%;'>
             <view class='list-wrapper'>
-              <block wx:for="{{starArray.starList}}" wx:key="*this" wx:for-index="itemIndex">
+              <block wx:for="{{starArray.starList}}" wx:key="itemIndex" wx:for-index="itemIndex">
                 <view class='list' bindtap='chooseStar' data-array-index='{{arrayIndex}}' data-item-index='{{itemIndex}}'>
                   <image src='{{item.imgName}}' class='{{curIndex === (arrayIndex+""+itemIndex) ? "cur" : ""}}'></image>
                   <view class='star-info name'>{{item.name}}</view>

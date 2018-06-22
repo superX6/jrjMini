@@ -7,6 +7,7 @@
         <image class='vatar' src='{{item.headImgUrl}}'></image>
         <view class='nick-name item'>{{item.nickName}}</view>
         <view class='count item {{item.rank === 1 ? "first" : ""}}'>{{item.supportTimes}}</view>
+        <button class='weui-btn callup' data-url= '{{item.headImgUrl}}' data-openid= '{{item.openid}}'  bindtap='callup'>助力</button>
       </view>
     </block>
   </view>
