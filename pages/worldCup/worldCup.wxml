@@ -15,9 +15,9 @@
         <text>{{contry}}</text>
       </view>
     </view>
-    <button class='weui-btn show-btn' disabled='{{confirmBtn}}' type='primary' wx:if='{{showChooseBtn}}' bindtap="showDialogBtn">确认选择</button>
-    <!-- <button class='weui-btn show-btn' disabled='{{confirmBtn}}' type='primary' wx:if='{{!chooseFlag}}' bindtap="callUp">今日助力</button> -->
-    <button class='weui-btn show-btn' type='primary' bindtap='toSharePage' wx:if='{{!showChooseBtn}}'> 球星助力</button>
+     <view  class=' expect' wx:if="{{showChooseBtn == 2}}">敬请期待</view> 
+     <button class='weui-btn show-btn' disabled='{{confirmBtn}}' type='primary' wx:if="{{showChooseBtn == 0}}" bindtap="showDialogBtn">确认选择</button>   
+    <button class='weui-btn show-btn' type='primary' bindtap='toSharePage' wx:if="{{showChooseBtn == 1}}"> 球星助力</button>
   </view>
 
 

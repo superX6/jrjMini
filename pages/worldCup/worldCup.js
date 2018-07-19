@@ -14,7 +14,7 @@ Page({
     curId: '',
     starName: '???',
     kefuUrl: '',
-    showChooseBtn: true,
+    showChooseBtn: 0,
     confirmBtn: true,
     stopChoose: false,
     tipsText: '选择助力球星',
@@ -37,7 +37,7 @@ Page({
         // url: '../rankPage/rankPage?starId=1'  + "&starName=" + starName
       })
       return ;
-    } else{         
+    } else{       
      
       var temUrl = temArr[itemIndex].imgName;
       this.setData({
@@ -103,17 +103,28 @@ Page({
       success: function (res) {
         if (res.data.code === 0) {          
           that.setData({
-            showChooseBtn: false,
+            showChooseBtn: 1,
             tipsText: '已选球星',
             stopChoose: true,
             chooseUrl: app.globalData.path + res.data.data.imgName,
             starName: res.data.data.name,
             contry: res.data.data.contry          
           })
+        } else if (res.data.code === 1) {   
+         
+          var curTime = new Date().getTime();
+          var stopTime = new Date("2018-06-05 00:00:00").getTime()
+          if (curTime > stopTime) {
+            that.setData({
+              showChooseBtn: 2,
+              tipsText: '金球奖得主？',
+              stopChoose: true,
+              // chooseUrl: app.globalData.path + res.data.data.imgName, //金球奖图片
+            })
+          }
         }
       }
     })
-
 
   },
 
@@ -187,7 +198,7 @@ Page({
           if (res.data.code === 0) {  
             that.setData({
               tipsText: '已选球星',
-              showChooseBtn: false,
+              showChooseBtn: 1,
               stopChoose: true
             })          
           } else{

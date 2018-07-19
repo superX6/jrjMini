@@ -37,8 +37,7 @@ Page({
     let worldCupToken = wx.getStorageSync('worldCupToken');  
     wx.login({
       success: function (res) {   
-        console.log('222222222222222');
-        console.log(`res.code=${res.code}`)   
+    
         wx.request({
           url: getApp().globalData.path + 'worldCup/getOpenid',
           method: 'POST',

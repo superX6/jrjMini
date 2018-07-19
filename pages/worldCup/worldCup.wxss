@@ -147,7 +147,24 @@ page{
     border: 8rpx solid #b3ff95;
     border-radius:8px;
 
+}
+.choose-star .expect{
+    display: inline-block;
+    width: 220rpx;
+    height: 100rpx;
+    line-height: 95rpx;
+    -webkit-flex-basis: 220rpx;
+        -ms-flex-preferred-size: 220rpx;
+            flex-basis: 220rpx;
+    font-size: 36rpx;
+    padding: 0;
+    text-align: center;
+    margin: 40rpx 0 0 0;
+    background: #14ac33;
+      border-radius:8px;
+      color: #fff;
 
+  
 }
 .star-panel{
     height: 520rpx;
